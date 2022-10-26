@@ -5,6 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
+import "./navbar.css";
 
 const Navbar = () => {
   return (
