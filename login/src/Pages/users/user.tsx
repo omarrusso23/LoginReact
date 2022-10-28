@@ -1,71 +1,41 @@
-import React from "react";
+//React Imports
+import React, { useEffect } from "react";
+//MUI Imports
 import Navbar from "../../Components/Navbar";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import { CardMedia } from "@mui/material";
+import { Button, CardMedia } from "@mui/material";
 import Typography from "@mui/material/Typography";
+//Redux Imports
+import {
+  fetchAllUsers,
+  nextPage,
+  previousPage,
+} from "../../redux/slices/users";
+import { useDispatch, useSelector } from "react-redux";
+
+import "./users.css";
 
 function Users() {
-  const users = [
-    {
-      id: 1,
-      email: "george.bluth@reqres.in",
-      first_name: "George",
-      last_name: "Bluth",
-      avatar: "https://reqres.in/img/faces/1-image.jpg",
-    },
-    {
-      id: 2,
-      email: "janet.weaver@reqres.in",
-      first_name: "Janet",
-      last_name: "Weaver",
-      avatar: "https://reqres.in/img/faces/2-image.jpg",
-    },
-    {
-      id: 3,
-      email: "emma.wong@reqres.in",
-      first_name: "Emma",
-      last_name: "Wong",
-      avatar: "https://reqres.in/img/faces/3-image.jpg",
-    },
-    {
-      id: 4,
-      email: "eve.holt@reqres.in",
-      first_name: "Eve",
-      last_name: "Holt",
-      avatar: "https://reqres.in/img/faces/4-image.jpg",
-    },
-    {
-      id: 5,
-      email: "charles.morris@reqres.in",
-      first_name: "Charles",
-      last_name: "Morris",
-      avatar: "https://reqres.in/img/faces/5-image.jpg",
-    },
-    {
-      id: 6,
-      email: "tracey.ramos@reqres.in",
-      first_name: "Tracey",
-      last_name: "Ramos",
-      avatar: "https://reqres.in/img/faces/6-image.jpg",
-    },
-    {
-      id: 7,
-      email: "michael.lawson@reqres.in",
-      first_name: "Michael",
-      last_name: "Lawson",
-      avatar: "https://reqres.in/img/faces/7-image.jpg",
-    },
-    {
-      id: 8,
-      email: "lindsay.ferguson@reqres.in",
-      first_name: "Lindsay",
-      last_name: "Ferguson",
-      avatar: "https://reqres.in/img/faces/8-image.jpg",
-    },
-  ];
+  const { list: users } = useSelector((state: any) => state.users);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAllUsers() as any);
+  }, [dispatch]);
+
+  const clickNextPage = () => {
+    nextPage();
+    dispatch(fetchAllUsers() as any);
+  };
+
+  const clickPreviousPage = () => {
+    previousPage();
+    dispatch(fetchAllUsers() as any);
+  };
 
   return (
     <div className="Users">
@@ -74,25 +44,56 @@ function Users() {
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2} alignItems="center" justifyContent="center">
           {users.map((user, index) => (
-            <Grid item xs={2.5}>
-              <Card>
-                <CardMedia
-                  component="img"
-                  image={user.avatar}
-                  alt="avatar image"
-                ></CardMedia>
-                <CardContent>
-                  <Typography gutterBottom variant="h5">
-                    {user.first_name} {user.last_name}
-                  </Typography>
-                  <Typography gutterBottom variant="h6">
-                    {user.email}
-                  </Typography>
-                </CardContent>
-              </Card>
+            <Grid item xs={3.1}>
+              <div>
+                <Card
+                  className="card3d"
+                  sx={{
+                    height: 600,
+                  }}
+                >
+                  <CardMedia
+                    component="img"
+                    image={user.avatar}
+                    alt="avatar image"
+                  ></CardMedia>
+                  <CardContent>
+                    <Typography gutterBottom variant="h5">
+                      {user.first_name} {user.last_name}
+                    </Typography>
+                    <Typography gutterBottom variant="h6">
+                      {user.email}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </div>
             </Grid>
           ))}
         </Grid>
+        <div className="btnDIV">
+          <Button
+            onClick={clickPreviousPage}
+            sx={{
+              width: 150,
+            }}
+            className="btn"
+          >
+            <Typography variant="h6" component="div">
+              Prev page
+            </Typography>
+          </Button>
+          <Button
+            onClick={clickNextPage}
+            sx={{
+              width: 150,
+            }}
+            className="btn"
+          >
+            <Typography variant="h6" component="div">
+              Next page
+            </Typography>
+          </Button>
+        </div>
       </Box>
     </div>
   );

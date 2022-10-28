@@ -1,0 +1,44 @@
+.Users {
+  background: rgb(33, 33, 33);
+  background: linear-gradient(
+    0deg,
+    rgba(33, 33, 33, 1) 0%,
+    rgba(61, 61, 61, 1) 46%,
+    rgba(71, 71, 71, 1) 100%
+  );
+}
+
+.btnDIV {
+  background-color: #121212;
+  margin-top: 20px;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+  z-index: 100;
+  color: red;
+  background-color: transparent;
+}
+
+.card3d {
+  margin: 4px;
+  transform: scale(1);
+  perspective: 600px;
+  z-index: 0;
+}
+
+.card3d:hover {
+  z-index: 100;
+  transform: scale(1.05);
+  transition: 0.4s;
+}
+
+.card3d,
+.card3d img {
+  transition: all 250ms ease-out;
+}
