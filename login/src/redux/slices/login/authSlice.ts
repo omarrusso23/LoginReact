@@ -7,7 +7,7 @@ const initialState = {
   error: "",
 };
 
-export let log = false;
+export let log = true;
 
 //Con esta función se podría hacer el registro lo que falta es la vista
 

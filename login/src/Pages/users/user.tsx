@@ -24,6 +24,7 @@ function Users() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    document.title = "Users";
     dispatch(fetchAllUsers() as any);
   }, [dispatch]);
 

@@ -21,10 +21,16 @@ let page = 1;
 
 export const nextPage = () => {
   page++;
+  if (page > 2) {
+    page = 2;
+  }
 };
 
 export const previousPage = () => {
   page--;
+  if (page < 1) {
+    page = 1;
+  }
 };
 
 export const fetchAllUsers = () => (dispatch) => {
