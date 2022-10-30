@@ -7,6 +7,9 @@ import Typography from "@mui/material/Typography";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
 import "./navbar.css";
+import { logout } from "../redux/slices/login/authSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -40,14 +43,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const handleSearch = event =>{
-  if(event.target.value){
-    const searchText = event.target.value;
-    const matchedNames=
-  }
-}
-
 const Navbar = () => {
+  const dispatch = useDispatch<any>();
+  const navigate = useNavigate();
+  const logoutHandle = () => {
+    dispatch(logout);
+    navigate("/login");
+  };
+
   return (
     <div className="Navbar">
       <Box sx={{ flexGrow: 1 }}>
@@ -64,7 +67,7 @@ const Navbar = () => {
                 className="search-input"
               />
             </Search>
-            <Button className="logOutbtn" sx={{ mr: 4 }}>
+            <Button className="logOutbtn" sx={{ mr: 4 }} onClick={logoutHandle}>
               <Typography variant="h6" component="div">
                 Cerrar sesión
               </Typography>

@@ -5,7 +5,7 @@ import Users from "./Pages/users/user";
 import { CssBaseline } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Provider } from "react-redux";
-import store from "./redux";
+import store from "./redux/store";
 
 const darkTheme = createTheme({
   palette: {
