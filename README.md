@@ -1,5 +1,5 @@
 # LoginTDM
 
-usuario=eve.holt@reqres.in
+usuario/user = eve.holt@reqres.in
 
-contraseña=cityslicka
+contraseña/user = cityslicka
