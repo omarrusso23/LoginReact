@@ -68,7 +68,7 @@ function Login() {
           </button>
         </form>
         <button className="login__registerButton" onClick={register}>
-          Create your Amazon Account
+          Create your Account
         </button>
       </div>
     </div>

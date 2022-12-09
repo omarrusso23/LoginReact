@@ -1,8 +1,12 @@
 .checkout {
   display: flex;
-  padding: 20px;
-  background-color: white;
+  padding: 40px;
+  background: linear-gradient(124deg, #000000, #363636);
   height: max-content;
+  -webkit-animation: gradientAnim 10s ease infinite;
+  -moz-animation: gradientAnim 10s ease infinite;
+  animation: gradientAnim 10s ease infinite;
+  height: 100vh;
 }
 
 .checkout__ad {
@@ -10,8 +14,60 @@
   margin-bottom: 10px;
 }
 
+.h3__greatings {
+  color: rgb(255, 255, 255);
+  font-size: 2rem;
+}
+
 .checkout__title {
   margin-right: 10px;
   padding: 10px;
   border-bottom: 1px solid lightgray;
+}
+
+@-webkit-keyframes gradientAnim {
+  0% {
+    background-position: 36% 0%;
+  }
+  50% {
+    background-position: 65% 100%;
+  }
+  100% {
+    background-position: 36% 0%;
+  }
+}
+@-moz-keyframes gradientAnim {
+  0% {
+    background-position: 36% 0%;
+  }
+  50% {
+    background-position: 65% 100%;
+  }
+  100% {
+    background-position: 36% 0%;
+  }
+}
+@keyframes gradientAnim {
+  0% {
+    background-position: 36% 0%;
+  }
+  50% {
+    background-position: 65% 100%;
+  }
+  100% {
+    background-position: 36% 0%;
+  }
+}
+.checkout__left {
+  width: 100%;
+  background-color: #00000017;
+}
+.checkout__right {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+.subtotal {
+  margin-left: 50px;
+  margin-top: 100px;
 }

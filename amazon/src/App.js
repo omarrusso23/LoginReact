@@ -47,7 +47,15 @@ function App() {
             </>
           }
         ></Route>
-        <Route path="/checkout" element={<Checkout></Checkout>}></Route>
+        <Route
+          path="/checkout"
+          element={
+            <>
+              <Header />
+              <Checkout></Checkout>
+            </>
+          }
+        ></Route>
       </Routes>
     </div>
   );
